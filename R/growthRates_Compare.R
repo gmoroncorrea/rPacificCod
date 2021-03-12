@@ -19,10 +19,10 @@ growthRates_CompareAllStages<-function(T){
   plots<-list();
 
   #--growth in mass
-  gM_preDW<-rPacificCod::preflexionLarvae_GrowthRate_DW(T);
-  gM_pstDW<-rPacificCod::postflexionLarvae_GrowthRate_DW(T);
-  gM_pstWW<-rPacificCod::postflexionLarvae_GrowthRate_WW(T);
-  gM_juvWW<-rPacificCod::juveniles_GrowthRate_WW(T);
+  gM_preDW<-rPacificCod::preflexionLarvae_GrowthRateDW(T);
+  gM_pstDW<-rPacificCod::postflexionLarvae_GrowthRateDW(T);
+  gM_pstWW<-rPacificCod::postflexionLarvae_GrowthRateWW(T);
+  gM_juvWW<-rPacificCod::juveniles_GrowthRateWW(T);
   dfr<-data.frame(temp=T,
                   "preflexion larvae (DW)"=gM_preDW,
                   "postflexion larvae (DW)"=gM_pstDW,
@@ -39,10 +39,10 @@ growthRates_CompareAllStages<-function(T){
   plots[["biomass"]]<-p;
 
   #--growth in length
-  gM_preSL<-rPacificCod::preflexionLarvae_GrowthRate_SL(T);
-  gM_pstSL<-rPacificCod::postflexionLarvae_GrowthRate_SL(T);
-  gM_pstTL<-rPacificCod::postflexionLarvae_GrowthRate_TL(T);
-  gM_juvTL<-rPacificCod::juveniles_GrowthRate_TL(T);
+  gM_preSL<-rPacificCod::preflexionLarvae_GrowthRateSL(T);
+  gM_pstSL<-rPacificCod::postflexionLarvae_GrowthRateSL(T);
+  gM_pstTL<-rPacificCod::postflexionLarvae_GrowthRateTL(T);
+  gM_juvTL<-rPacificCod::juveniles_GrowthRateTL(T);
   dfr<-data.frame(temp=T,
                   "preflexion larvae (SL)"= gM_preSL,
                   "postflexion larvae (SL)"=gM_pstSL,
@@ -82,7 +82,7 @@ growthRates_CompareAllStages<-function(T){
 #'
 growthRates_CompareJuveniles<-function(T,W=6.8,EDc=4138){
   #--growth in mass from 2010 paper
-  gM_juv2010<-rPacificCod::juveniles_GrowthRate_WW(T);#relative growth (i.e., per-day)
+  gM_juv2010<-rPacificCod::juveniles_GrowthRateWW(T);#relative growth (i.e., per-day)
   #--growth in mass from 2018 paper
   gM_juv2018<-rPacificCod::juv_GT(T)/EDc;             #need to convert from J/g fish/day to relative growth
   #--bioenergetically-determined growth rate from 2018 paper
